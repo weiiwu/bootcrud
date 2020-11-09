@@ -65,6 +65,11 @@
         <hr>
         <div class="row">
             <div class="col-lg-12">
+                <div id="showAlert"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered text-center">
                         <thead>
@@ -95,5 +100,6 @@
             </div>
         </div>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>
