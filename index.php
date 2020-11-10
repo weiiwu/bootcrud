@@ -83,17 +83,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Test</td>
-                                <td>Test</td>
-                                <td>test@test.com</td>
-                                <td>12345678</td>
-                                <td>
-                                    <a href="#" class="btn btn-success btn-sm rounded-pill py-0">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm rounded-pill py-0">Delete</a>
-                                </td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>

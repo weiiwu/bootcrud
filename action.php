@@ -20,5 +20,30 @@
 
     }
 
+    // Handle fetch all users
+    if(isset($_GET['read'])) {
+        $users = $db->read();
+        $output = '';
+        if($users) {
+            foreach ($users as $row) {
+                $output .= '<tr>
+                <td>'.$row['id'].'</td>
+                <td>'.$row['first_name'].'</td>
+                <td>'.$row['last_name'].'</td>
+                <td>'.$row['email'].'</td>
+                <td>'.$row['phone'].'</td>
+                <td>
+                    <a href="#" id="'.$row['id'].'" class="btn btn-success btn-sm rounded-pill py-0">Edit</a>
+                    <a href="#" id="'.$row['id'].'" class="btn btn-danger btn-sm rounded-pill py-0">Delete</a>
+                </td>
+            </tr>';
+            }
+            echo $output;
+        }else{
+            echo '<tr>
+            <td colspan="6">No Users Found</td>
+            </tr>';
+        }
+    }
 
 ?>
