@@ -33,7 +33,7 @@
                 <td>'.$row['email'].'</td>
                 <td>'.$row['phone'].'</td>
                 <td>
-                    <a href="#" id="'.$row['id'].'" class="btn btn-success btn-sm rounded-pill py-0">Edit</a>
+                    <a href="#" id="'.$row['id'].'" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editUserModal">Edit</a>
                     <a href="#" id="'.$row['id'].'" class="btn btn-danger btn-sm rounded-pill py-0">Delete</a>
                 </td>
             </tr>';
@@ -43,6 +43,29 @@
             echo '<tr>
             <td colspan="6">No Users Found</td>
             </tr>';
+        }
+    }
+
+    // Handle edit user
+    if(isset($_GET['edit'])) {
+        $id = $_GET['id'];
+
+        $user = $db->readOne($id);
+        echo json_encode($user);
+    }
+
+    // Handle update user
+    if(isset($_POST['update'])) {
+        $id = $util->testInput($_POST['id']);
+        $fname = $util->testInput($_POST['fname']);
+        $lname = $util->testInput($_POST['lname']);
+        $email = $util->testInput($_POST['email']);
+        $phone = $util->testInput($_POST['phone']);
+
+        if($db->update($id,$fname,$lname,$email,$phone)){
+            echo $util->showMessage('success', 'User updated successfully');
+        }else{
+            echo $util->showMessage('danger', 'User updated error');
         }
     }
 
